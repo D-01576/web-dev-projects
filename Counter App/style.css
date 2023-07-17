@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background: #e6d89e;
+}
+
+.app{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    height:400px;
+    flex-direction: column;
+}
+
+.app h2{
+    font-size: 50px;
+    margin-bottom: 25px;
+}
+
+.app #countshow{
+    font-size: 30px;
+    width: 350px;
+    text-align: center;
+    border:3px solid black;
+    margin-top: 20px;
+    height:37;
+    background: white;
+    border-radius: 20px;
+}
+
+.app .buttons{
+    margin-top: 100px;
+    row-gap: 2;
+}
+.app .buttons button{
+    width :200px;
+    height:80px;
+    font-size: 25;
+    background-color: #473903;
+    color: white;
+    font-weight: 600;
+    border-radius: 20px;
+}
+.app .buttons button:hover{
+    box-shadow: 0 4px 12px #e7c437;
+}
