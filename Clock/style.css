@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    background-image: url(image.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-sizing: border-box;
+    display: flex;
+    background-position: center;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    background: rgba(238, 236, 238, 0.32);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.478);
+    backdrop-filter: blur(1.0px);
+    -webkit-backdrop-filter: blur(2px);
+    min-width: 320px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container #time{
+    font-size: 50px;
+    font-weight: 550;
+    margin-top: 20px;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+}
+
+.container .text{
+    font-size: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    color: white;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    width: 250px;
+    justify-content: space-between;
+}

@@ -1,0 +1,88 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(135deg, #4CE0D2, #22AAA1);
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container{
+    border-radius: 16px;
+    background: #cdeafa;
+    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(50%);
+    -webkit-backdrop-filter: blur(70px);
+    min-width: 250px;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 25px;
+    border-radius: 40px;
+    box-sizing: border-box;
+}
+
+.container .buttons{
+    margin-top: 20px;
+    width: 270px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.times{
+    font-size: 60px;
+    background: rgba(128, 128, 128, 0.133);
+    border-radius: 20px;
+}
+
+.container .buttons #pause{
+    display: none;
+}
+
+.container .buttons button{
+    width: 50px;
+    border: none;
+    border-radius: 50%;
+    background: rgb(4, 223, 247);
+    font-size: 20px;
+    height: 50px;
+}
+
+.container #storagearea{
+    margin-top: 20px;
+    height: 200px;
+    overflow-y: auto;
+    width: 250px;
+}
+
+.container #storagearea::-webkit-scrollbar {
+    width: 20px;
+  }
+
+#storagearea::-webkit-scrollbar-track{
+    background: rgb(235, 209, 230);
+    border-radius: 10px;
+}
+
+#storagearea::-webkit-scrollbar-thumb{
+    background: linear-gradient(135deg, #4CE0D2, #22AAA1);
+    border-radius: 10px;
+}
+
+#storagearea .text{
+    font-size: 20px;
+    margin-top: 10px;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+button:active{
+    box-shadow: 0 1px 8px #8a87df;
+}
