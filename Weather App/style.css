@@ -1,0 +1,115 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(123deg, #0c76f8, #bcdce0);
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 350px;
+}
+
+.container{
+    background: white;
+    min-width: 350px;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0 0px 19px black;
+    box-sizing: border-box;
+}
+.container .whole
+{
+    display: none;
+}
+.container #search{
+    width: 270px;
+    height: 55px;
+    background: #d3ebec;
+    border: none;
+    outline: none;
+    padding-left: 20px;
+    font-size: 20px;
+
+    box-sizing: border-box;
+    border-radius: 20px;
+}
+.container #searchBTN{
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    border-radius: 50%;
+    border: none;
+    background: #d3ebec;
+}
+.container .temp{
+    justify-content: center;
+    align-items: center;
+    display:flex ;
+    flex-direction: column;
+}
+.container #im{
+    width: 150px;
+}
+.container #temperature{
+    font-size: 30px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    margin-top: 10px;
+}
+.container #namecast{
+    font-size: 30px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 500;
+}
+.container .other{
+    margin-top: 30px;
+    display: flex;
+    width: 300px;
+    justify-content: space-between;
+}
+.container .namehumidy
+{
+    display :flex ;
+}
+.container .size{
+    margin-top: 8px;
+    font-size:30px;
+}
+.container .humidity{
+    margin-left: 5px;
+    font-size: 20px;
+}
+
+.container .wind{
+    margin-left: 5px;
+    font-size: 20px;
+}
+
+strong{
+    font-size: 23px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.notfound{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+.notfound .not{
+    font-size: 25px;
+    margin-bottom: 20px;
+    color: rgb(98, 97, 97);
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
