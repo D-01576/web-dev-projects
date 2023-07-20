@@ -6,6 +6,7 @@ let wordof = document.querySelector(".word");
 let nothing = document.querySelector(".notfound")
 let phonetics = document.querySelector(".phonetics");
 
+searchword.value = searchword.value.charAt(0).toUpperCase() + searchword.value.slice(1);
 function api(){
     while (resultt.firstChild) {
         resultt.removeChild(resultt.firstChild);
@@ -63,7 +64,11 @@ function api(){
     searchword.value = "";
 }
 
-search.addEventListener("keypress", (val)=>{
+searchword.addEventListener("input", ()=>{
+    searchword.value = searchword.value.charAt(0).toUpperCase() + searchword.value.slice(1);
+})
+
+searchword.addEventListener("keypress", (val)=>{
     if(val.key === "Enter"){
         api();
     }
