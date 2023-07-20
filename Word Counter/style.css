@@ -61,6 +61,8 @@ h2{
     min-width: 350px;
     max-width: 350px;
     max-height: 250px;
+    resize: none;
+    overflow: hidden visible;
 }
 .main .textarea::-webkit-scrollbar{
     width: 15px;
