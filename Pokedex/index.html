@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.cdnfonts.com/css/pokemon-solid" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="searchbox">
+    <input type="text" id="pokemon" name="pokemon" list="pokemon-list" placeholder="Search">
+    <button class="searchbtn"><i class="fa fa-search"></i></button>
+     <datalist id="pokemon-list">
+     </datalist>
+     </div>
+    <div class="title">
+        <div class="searchcard">
+        </div>
+        <div id="loading">
+        <i class="fa fa-spinner fa"></i>
+        <h2>loading...</h2>
+        </div>
+    <div class="notfound">
+        <h3 class="sorry">Sorry</h3>
+        <div class="p404">4<img src="img/notfound.png">4</div>
+        <h2 class="pokenot">Pokemon Not Found!</h2>
+    </div>
+    </div>
+    <div class="container">
+    <div class="main">
+    </div> 
+    <button class="leaadmore">Lead more <i class="fa-solid fa-arrow-down-long"></i></button>
+</div>
+    <script src="https://kit.fontawesome.com/16039dc6d0.js" crossorigin="anonymous"></script>
+    <script src="script.js"></script>
+</body>
+</html>
