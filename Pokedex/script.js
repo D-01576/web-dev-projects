@@ -44,6 +44,7 @@ async function fetchKantoPokemon() {
 
       let typesHTML = types.map(type => `<p class="power" style="background-color: ${typeColors[type]}">${type}</p>`).join('');
       imgElement.innerHTML = `
+      <p class="pokeid">${i}</p>
         <img src="${allpokemon.sprites.other["official-artwork"].front_default}">
         <p class="pokemon">${allpokemon.name}</p>
         <div class="powerss">
@@ -75,7 +76,8 @@ async function searchwarofunction(){
 
     let typesHTML = types.map(type => `<p class="searchpower" style="background-color: ${typeColors[type]}">${type}</p>`).join('');
 
-    searchcard.innerHTML = `<img src="${allpokemon.sprites.other["official-artwork"].front_default}">
+    searchcard.innerHTML = `
+    <p class="searchpokeid">${allpokemon.id}</p><img src="${allpokemon.sprites.other["official-artwork"].front_default}">
     <p class="searchpokemon">${allpokemon.name}</p>
     <div class="searchpowerss">
           ${typesHTML}
@@ -116,7 +118,7 @@ async function listthepokemon(){
 leadddd.addEventListener("click", ()=>{
     leadddd.style.display = "none"
     first = second + 1;
-    second = second + 19;
+    second = second + 1010;
     fetchKantoPokemon()
   })
 
@@ -130,15 +132,17 @@ leadddd.addEventListener("click", ()=>{
   }
 seach.addEventListener("keypress" ,(val)=>{
   if(val.key === "Enter"){
-      val = event || window.event;
-      event.preventDefault();
-      window.history.pushState({},"",event.target.value)
+      // val = event || window.event;
+      // event.preventDefault();
+      // window.history.pushState({},"",event.target.value)
     just();
   }
 })
 
 seach.addEventListener("input",()=>{
   if(seach.value === ""){
+    // event.preventDefault();
+    // window.history.pushState({},"","ad");
     allthe.style.display = "none";
     main.style.display = "flex";
   }
@@ -148,3 +152,24 @@ searchbtn.addEventListener("click" , just)
 
 fetchKantoPokemon();
 listthepokemon();
+
+document.addEventListener("click", (event) => {
+  localStorage.clear();
+  const clickedCard = event.target.closest(".card");
+  const searchevent = event.target.closest(".searchcard")
+  if (clickedCard) {
+    const pokeimg = event.target.closest("img");
+    const value = clickedCard.querySelector(".pokeid").textContent;
+    localStorage.setItem("pokeimg",pokeimg.getAttribute('src'))
+    localStorage.setItem('dtaKy', value);
+    window.location.href = 'DescrivePokemon/index.html';
+  }
+  else if (searchevent) {
+    const pokeimg = event.target.closest("img");
+    const value = searchevent.querySelector(".searchpokeid").textContent;
+    localStorage.setItem("pokeimg",pokeimg.getAttribute('src'))
+    localStorage.setItem('dtaKy', value);
+    window.location.href = 'DescrivePokemon/index.html';
+  }
+});
+

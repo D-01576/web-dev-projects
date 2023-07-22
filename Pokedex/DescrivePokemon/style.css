@@ -1,0 +1,137 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background:white;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main
+{
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+}
+
+.main .pokemonimg{
+    background: rgba(112, 110, 110, 0.146);
+    width: 400px;
+    height: 400px;
+}
+
+.name{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 50px;
+}
+
+.main .flavourText{
+    margin-top: 5px;
+    width: 400px;
+    font-size: 20px;
+    font-family: "Flexo-Medium",arial,sans-serif;
+    color: #212121;
+    font-size: 112.5%;
+    line-height: 150%;
+}
+
+.in{
+    display: flex;
+    margin-left: 20px;
+    flex-direction: column;
+}
+
+.OverView{
+    flex-wrap: wrap;
+    padding: 20px;
+    margin-top: 20px;
+    width: 380px;
+    border-radius: 20px;
+    display: flex;
+    height: 240px;
+    background: rgba(0, 146, 186, 0.609);
+}
+
+.OverView h3{
+    font-size: 20px;
+    width: 150px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: white;
+}
+
+.OverView .namew
+{
+    margin-left: 40px;
+}
+.OverView .nameg
+{
+    margin-left: 40px;
+}
+
+.OverView p{
+    font-size: 20px;
+    color: #320000b8;
+}
+
+.stats{
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    width: 320px;
+    margin-top: 15px;
+}
+
+.nametype{
+    margin-top: 20px;
+
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.stats .power{
+    width: 150px;
+    font-weight: 500;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    height: 35px;
+    border-radius: 7px;
+    display:flex;
+    justify-content: center;
+    align-items: center
+}
+
+.weakness{
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    flex-wrap: wrap;
+    width: 320px;
+    margin-top: 15px;
+}
+
+.nameweak{
+    margin-top: 20px;
+
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.weakness .weak{
+    margin-top: 20px;
+    width: 150px;
+    font-weight: 500;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 20px;
+    height: 35px;
+    border-radius: 7px;
+    display:flex;
+    justify-content: center;
+    align-items: center
+}

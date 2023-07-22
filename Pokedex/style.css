@@ -194,7 +194,6 @@ body{
   }
 
   #pokemon::-webkit-calendar-picker-indicator {
-    display: none;
     color: white;
   }
 
@@ -234,4 +233,15 @@ body{
     align-items: center;
     border-radius: 4px;
     color: #fff;
+  }
+  .card:hover{
+    cursor: pointer;
+    margin-left: 26px;
+    margin-top: 5px;
+  }
+
+  .searchcard:hover{
+    cursor: pointer;
+    margin-left: -12px;
+    margin-top: 21px;
   }
