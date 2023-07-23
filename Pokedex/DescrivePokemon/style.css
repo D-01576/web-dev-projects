@@ -135,3 +135,118 @@ body{
     justify-content: center;
     align-items: center
 }
+
+.fisrt{
+    display: flex;
+}
+
+.states{
+    margin-top: 20px;
+    padding: 12px;
+    border-radius: 20px;
+    background: rgb(156, 154, 154);
+}
+
+.first .fontall{
+    margin-left: 50px;
+    grid-gap: 2px;
+    width: 280px;
+    height: 40px;
+    display: grid;
+    grid-template-rows: repeat(1, 1fr);
+    grid-template-columns: repeat(15, 1fr);
+    background: rgb(202, 196, 196);
+}
+
+.set{
+    color: rgb(72, 101, 125);
+    background: rgb(72, 101, 125);
+    height:40px ;
+}
+
+.states .hp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.states .defense{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.states .attack{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.states .specialattack{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.states .specialdefense{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.states .speed{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.statenames{
+    font-weight: bold;
+    color: white;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    width: 40px;
+}
+
+.titstate{
+    margin-bottom: 20px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+.chain{
+    width: 900px;
+    margin-top: 50px;
+    display: flex;flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    background: gray;
+}
+
+.chain .circlecard{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.chain img
+{
+    background: white;
+    border-radius: 50%;
+    border: 8px solid black;
+    width: 200px;
+}
+
+.chain p {
+    font-size: 25px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: 900;
+    margin-top: 10px;
+}

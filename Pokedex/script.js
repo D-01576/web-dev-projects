@@ -118,7 +118,7 @@ async function listthepokemon(){
 leadddd.addEventListener("click", ()=>{
     leadddd.style.display = "none"
     first = second + 1;
-    second = second + 1010;
+    second = second + 24;
     fetchKantoPokemon()
   })
 

@@ -1,3 +1,5 @@
+let upgrade = [];
+
 let img = document.querySelector(".pokemonimg")
 let pokename = document.querySelector(".name")
 let flavourText = document.querySelector(".flavourText");
@@ -5,8 +7,15 @@ let height = document.querySelector(".height")
 let weight = document.querySelector(".weight")
 let abilities = document.querySelector(".abilities");
 let gender = document.querySelector(".gender");
-let stats = document.querySelector(".stats")
-let weakness = document.querySelector(".weakness")
+let stats = document.querySelector(".stats");
+let weakness = document.querySelector(".weakness");
+let hp = document.getElementById("forhp");
+let attack = document.getElementById("forattack");
+let defense = document.getElementById("fordefense");
+let specialattack = document.getElementById("forspecialattack");
+let specialdefense = document.getElementById("forspecialdefense");
+let speed = document.getElementById("forspeed")
+let evolution = document.querySelector(".chain")
 
 const typeColors = {
     normal: "#A8A77A",
@@ -83,11 +92,78 @@ async function pokemon(){
         a.innerHTML = `<p class="weak" style="background-color: ${typeColors[el]}">${el}</p>`
         weakness.appendChild(a)
     });
-    // let weakHTML = weak.map(type => `<p class="weak" style="background-color: ${typeColors[type]}">${type}</p>`).join('');
+
     let typesHTML = types.map(type => `<p class="power" style="background-color: ${typeColors[type]}">${type}</p>`).join('');
 
     stats.innerHTML = typesHTML;
-    // weakness.innerHTML = weakHTML;
+    
+    let hpval = Math.round(detail.stats[0].base_stat/10);
+    let attckval = Math.round(detail.stats[1].base_stat/10);
+    console.log(attckval)
+    let defenseval = Math.round(detail.stats[2].base_stat/10);
+    let specialattackval = Math.round(detail.stats[3].base_stat/10);
+    let specialdefenseval = Math.round(detail.stats[4].base_stat/10);
+    let speedval = Math.round(detail.stats[5].base_stat/10);
+
+    for(let i = 0; i < hpval;i++){
+      let a = document.createElement("p");
+      a.innerHTML = `<p class="set" style="grid-column-start: ${i+1}">,</p>`;
+      hp.appendChild(a);
+    }
+
+    for(let i = 0; i < attckval;i++){
+      let a = document.createElement("p");
+      a.innerHTML = `<p class="set" style="grid-column-start: ${i+1}">,</p>`
+      attack.appendChild(a)
+    }
+
+    for(let i = 0; i < defenseval;i++){
+      let a = document.createElement("p");
+      a.innerHTML = `<p class="set" style="grid-column-start: ${i+1}">,</p>`
+      defense.appendChild(a)
+    }
+
+    for(let i = 0; i < specialattackval;i++){
+      let a = document.createElement("p");
+      a.innerHTML = `<p class="set" style="grid-column-start: ${i+1}">,</p>`
+      specialattack.appendChild(a)
+    }
+
+    for(let i = 0; i < specialdefenseval;i++){
+      let a = document.createElement("p");
+      a.innerHTML = `<p class="set" style="grid-column-start: ${i+1}">,</p>`
+      specialdefense.appendChild(a)
+    }
+
+    for(let i = 0; i < speedval;i++){
+      let a = document.createElement("p");
+      a.innerHTML = `<p class="set" style="grid-column-start: ${i+1}">,</p>`
+      speed.appendChild(a)
+    }
+    if(pokemon.evolves_from_species != null){
+    upgrade.push(pokemon.evolves_from_species.name);
+    let pokk = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${upgrade[0]}`);
+    let pokkdetail = await pokk.json();
+    if(pokkdetail.evolves_from_species != null){
+    upgrade.push(pokkdetail.evolves_from_species.name);
+    }
+  }
+    if(upgrade.length > 1){
+      let temp = upgrade[0]
+      upgrade[0] = upgrade[1]
+      upgrade[1] = temp;
+    }
+    upgrade.push(detail.name)
+    console.log(upgrade)
+    for(let i = 0; i < upgrade.length; i++){
+      let a = document.createElement("div");
+      a.classList = "circlecard";
+      let pokedata = await fetch(`https://pokeapi.co/api/v2/pokemon/${upgrade[i]}`);
+      let respoke = await pokedata.json();
+      a.innerHTML = `<img src="${respoke.sprites.other["official-artwork"].front_default}" alt="">
+      <p class="pookname">${upgrade[i]}</p>`+">"
+      evolution.appendChild(a);
+    };
 }
 
 function detectweakness(types) {
