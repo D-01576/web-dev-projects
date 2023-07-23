@@ -8,6 +8,7 @@ let notfound = document.querySelector(".notfound");
 let allthe = document.querySelector(".title");
 let loading = document.querySelector("#loading");
 let searchbtn = document.querySelector(".searchbtn")
+let searchbox = document.querySelector(".searchbox")
 let second = 23;
 let first = 1;
 const typeColors = {
@@ -44,8 +45,8 @@ async function fetchKantoPokemon() {
 
       let typesHTML = types.map(type => `<p class="power" style="background-color: ${typeColors[type]}">${type}</p>`).join('');
       imgElement.innerHTML = `
-      <p class="pokeid">${i}</p>
-        <img src="${allpokemon.sprites.other["official-artwork"].front_default}">
+        <img src="${allpokemon.sprites.other["official-artwork"].front_default}" style="background: linear-gradient(180deg, ${typeColors[allpokemon.types[0].type.name]}, #65626200)">
+        <p class="pokeid">#${i.toString().padStart(4, "0")}</p>
         <p class="pokemon">${allpokemon.name}</p>
         <div class="powerss">
           ${typesHTML}
@@ -77,7 +78,8 @@ async function searchwarofunction(){
     let typesHTML = types.map(type => `<p class="searchpower" style="background-color: ${typeColors[type]}">${type}</p>`).join('');
 
     searchcard.innerHTML = `
-    <p class="searchpokeid">${allpokemon.id}</p><img src="${allpokemon.sprites.other["official-artwork"].front_default}">
+    <img src="${allpokemon.sprites.other["official-artwork"].front_default}" style="background: linear-gradient(180deg, ${typeColors[allpokemon.types[0].type.name]}, #65626200">
+    <p class="searchpokeid">#${allpokemon.id.toString().padStart(4, "0")}</p>
     <p class="searchpokemon">${allpokemon.name}</p>
     <div class="searchpowerss">
           ${typesHTML}
@@ -89,6 +91,7 @@ async function searchwarofunction(){
   } catch (error) {
     loading.style.display = "none";
     notfound.style.display = "flex";
+    searchbox.style.display = "flex"
     searchcard.style.display = "none";
   }
 }

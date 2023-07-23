@@ -12,10 +12,10 @@
 body{
     height: 100vh;
     width: 100vw;
-    background: linear-gradient(134deg,#b19292,#00c3f9);
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: white;
+    background-image: url(background.png);
     display: flex;
+    background-attachment: fixed;
     /* justify-content: center; */
     flex-direction: column;
     /* align-items: center; */
@@ -31,37 +31,48 @@ body{
 
 .main {
     justify-content: center;
-    height: 440px;
     align-items: center;
     display: flex;
-    flex-grow: 1;
-    margin-top: 50px;
+    height: 100vh;
+    /* flex-grow: 1; */
     /* overflow-y: scroll; */
     flex-wrap: wrap;
+    margin-top: 120px;
   }
   
   .card{
     margin-left: 30px;
-    border-radius: 40px;
-    margin-top: 20px;
-    background-color: #fcfcfc;
+    border-radius: 20px;
+    background-color: #65626285;
     overflow: auto;
     display: flex;
-    width: 220px;
+    width: 200px;
+    margin-top: 22px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
 
   img {
-    width: 150px;
+    width: 330px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
     margin: 5px;
   }
 
+  .pokeid{
+    margin-right:80px;
+    font-size: 20px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    color: #adacac;
+  }
+
   .pokemon{
-    font-size: 30px;
+    font-size: 20px;
     font-family: 'Pokemon GB', Arial, sans-serif;
     margin-bottom: 20px;
+    color: rgb(255, 255, 255);
   }
 
   .leaadmore{
@@ -86,11 +97,19 @@ body{
     margin-top: 30px;
     display: none;
     border-radius: 40px;
-    background-color: #fcfcfc;
+    background-color: #65626229;
     overflow: auto;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  .searchpokeid{
+    margin-right:80px;
+    font-size: 20px;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: bold;
+    color: #adacac;
   }
 
   img {
@@ -100,6 +119,7 @@ body{
 
   .searchpokemon{
     font-size: 30px;
+    color:white;
     font-family: 'Pokemon GB', Arial, sans-serif;
     margin-bottom: 20px;
   }
@@ -174,23 +194,38 @@ body{
     }
   }
   .searchbox{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 50px;
-    
+    display:flex;
+    margin-left: 136px;
+    width: 850px;
+    margin-top: 10px;
+    justify-content: space-between;
   }
   .searchbox input{
     width: 300px;
     height: 40px;
-    border-radius: 20px;
+    border: none;
+    display:table-header-group;
+    border-radius: 10px;
+    margin-right: -180px;
     padding-left: 20px;
     font-size: 20px;
   }
   .searchbox button{
     height: 40px;
+    border: none;
     width: 40px;
-    border-radius: 50%;
+    background: rgba(191, 126, 6, 0.946);
+    border-radius: 10px;
+  }
+
+  .searchbox .text{
+    border-radius: 10px;
+    margin-left: 20px;
+    font-size: 20px;
+    max-width: 290px;
+    padding:2px;
+    color: white;
+    background: rgba(66, 145, 66, 0.938);
   }
 
   #pokemon::-webkit-calendar-picker-indicator {
@@ -244,4 +279,23 @@ body{
     cursor: pointer;
     margin-left: -12px;
     margin-top: 21px;
+  }
+
+  .nav{
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.87);
+  }
+  .nav .names
+  {
+    width: 320px;
+    justify-content: space-around;
+    margin-right: 30px;
+    font-size: 25px;
+    font-weight: 600;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgba(0, 0, 0, 0.616);
+    display: flex;
   }

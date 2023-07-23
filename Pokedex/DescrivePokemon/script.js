@@ -1,7 +1,10 @@
 let upgrade = [];
 
+let main = document.querySelector(".main")
+let loading = document.querySelector("#loading")
 let img = document.querySelector(".pokemonimg")
 let pokename = document.querySelector(".name")
+let id = document.querySelector(".id")
 let flavourText = document.querySelector(".flavourText");
 let height = document.querySelector(".height")
 let weight = document.querySelector(".weight")
@@ -38,19 +41,25 @@ const typeColors = {
     fairy: "#D685AD",
   };
 
-let a = localStorage.getItem("dtaKy");
+let a = parseInt(localStorage.getItem("dtaKy").slice(1));
 let pokeimg = localStorage.getItem("pokeimg");
 img.src = pokeimg;
 
 async function pokemon(){
+    evolution.style.display = "none";
+    pokename.style.display = "none"
+    loading.style.display = "flex";
+    main.style.display = "none";
     let data = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${a}`);
     let data2 = await fetch(`https://pokeapi.co/api/v2/pokemon/${a}`);
     let detail = await data2.json();
     let pokemon = await data.json();
-
+  console.log(detail)
     let types = detail.types.map(type => type.type.name);
 
     pokename.textContent = pokemon.name;
+    id.textContent = '#'+pokemon.id.toString().padStart(4, "0");
+
     console.log(detail);
     flavourText.textContent = pokemon.flavor_text_entries[0].flavor_text
 
@@ -160,10 +169,23 @@ async function pokemon(){
       a.classList = "circlecard";
       let pokedata = await fetch(`https://pokeapi.co/api/v2/pokemon/${upgrade[i]}`);
       let respoke = await pokedata.json();
+      let poketypes = respoke.types.map(type => type.type.name);
+      let poketypesHTML = poketypes.map(type => `<p class="pokepower" style="background-color: ${typeColors[type]}">${type}</p>`).join('')
       a.innerHTML = `<img src="${respoke.sprites.other["official-artwork"].front_default}" alt="">
-      <p class="pookname">${upgrade[i]}</p>`+">"
+      <p class="pookname">${upgrade[i]}</p><div class="poketypes">${poketypesHTML}</div>`
       evolution.appendChild(a);
+      if (i != upgrade.length - 1){
+        let arrow = document.createElement("div");
+        let txt = document.createElement("h2");
+        txt.innerHTML = '<i class="fa-solid fa-arrow-right">';
+        arrow.appendChild(txt);
+        evolution.appendChild(arrow);
+      }
     };
+    loading.style.display = "none";
+    evolution.style.display = "flex";
+    pokename.style.display = "flex"
+    main.style.display = "flex";
 }
 
 function detectweakness(types) {
@@ -197,7 +219,6 @@ function detectweakness(types) {
       }
     }
     weaknesses = [...new Set(weaknesses)];
-  
     return weaknesses;
   }
   
