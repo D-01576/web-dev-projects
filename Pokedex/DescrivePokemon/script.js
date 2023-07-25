@@ -19,6 +19,10 @@ let specialattack = document.getElementById("forspecialattack");
 let specialdefense = document.getElementById("forspecialdefense");
 let speed = document.getElementById("forspeed")
 let evolution = document.querySelector(".chain")
+let backpoknum =  document.querySelector(".backpoknum")
+let backpokname = document.querySelector(".backpokname");
+let forpokname = document.querySelector(".forpokname")
+let forpoknum = document.querySelector(".forpoknum")
 
 const typeColors = {
     normal: "#A8A77A",
@@ -42,8 +46,7 @@ const typeColors = {
   };
 
 let a = parseInt(localStorage.getItem("dtaKy").slice(1));
-let pokeimg = localStorage.getItem("pokeimg");
-img.src = pokeimg;
+// img.src = pokeimg;
 
 async function pokemon(){
     evolution.style.display = "none";
@@ -54,7 +57,22 @@ async function pokemon(){
     let data2 = await fetch(`https://pokeapi.co/api/v2/pokemon/${a}`);
     let detail = await data2.json();
     let pokemon = await data.json();
-  console.log(detail)
+
+    img.src = detail.sprites.other["official-artwork"].front_default
+
+    if(a>1){
+    let firstpok = await fetch(`https://pokeapi.co/api/v2/pokemon/${a-1}`);
+    let firstdetail = await firstpok.json();
+    backpoknum.textContent = "#"+firstdetail.id.toString().padStart(4, "0");
+    backpokname.textContent = firstdetail.name;
+}
+  if(a < 1010){
+    let secondpok = await fetch(`https://pokeapi.co/api/v2/pokemon/${a+1}`);
+    let seconddetail = await secondpok.json();
+    forpoknum.textContent = "#"+seconddetail.id.toString().padStart(4, "0");
+    forpokname.textContent = seconddetail.name;
+}
+
     let types = detail.types.map(type => type.type.name);
 
     pokename.textContent = pokemon.name;
@@ -171,8 +189,8 @@ async function pokemon(){
       let respoke = await pokedata.json();
       let poketypes = respoke.types.map(type => type.type.name);
       let poketypesHTML = poketypes.map(type => `<p class="pokepower" style="background-color: ${typeColors[type]}">${type}</p>`).join('')
-      a.innerHTML = `<img src="${respoke.sprites.other["official-artwork"].front_default}" alt="">
-      <p class="pookname">${upgrade[i]}</p><div class="poketypes">${poketypesHTML}</div>`
+      a.innerHTML = `<img src="${respoke.sprites.other["official-artwork"].front_default}" alt="" class="circleimg" id=${respoke.id.toString().padStart(4, "0")}>
+      <p class="pookname">${upgrade[i]}<span class="chainpokeid">#${respoke.id.toString().padStart(4, "0")}</span></p><div class="poketypes">${poketypesHTML}</div>`
       evolution.appendChild(a);
       if (i != upgrade.length - 1){
         let arrow = document.createElement("div");
@@ -223,5 +241,34 @@ function detectweakness(types) {
   }
   
 
+let back = document.getElementById("backword")
+
+back.addEventListener("click", ()=>{
+  let value = backpoknum.textContent;
+  if(parseInt(value.slice(1)) > 0){
+  localStorage.setItem('dtaKy', value);
+  window.location.reload();
+  }
+})
+
+let forword = document.getElementById("forword")
+
+forword.addEventListener("click", ()=>{
+  let value = forpoknum.textContent;
+  if(parseInt(value.slice(1)) < 1011){
+  localStorage.setItem('dtaKy', value);
+  window.location.reload()}
+})
+
+let circleimg = document.querySelector("#circleimg")
+
+document.addEventListener("click", (e)=>{
+  if (e.target.classList.contains("circleimg")){
+    let value = e.target.id;
+    localStorage.setItem('dtaKy', value);
+    window.location.reload()
+    console.log(value)
+  }
+})
 pokemon()
 //   console.log("jkasd")

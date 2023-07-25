@@ -1,3 +1,8 @@
+let stared = [];
+// if(localStorage.getItem("stared")){
+// stared = JSON.parse(localStorage.getItem("stared"))
+// }
+
 let main = document.querySelector(".main");
 let leadddd = document.querySelector(".leaadmore");
 let seach = document.querySelector("#pokemon");
@@ -43,6 +48,15 @@ async function fetchKantoPokemon() {
       let imgElement = document.createElement("div");
       imgElement.className = "card";
 
+      let filledstar;
+      let star;
+      if (stared.includes(i)) {
+        filledstar = `<i class="fa-regular fa-star" id="${i}" style="display: none;"></i>`;
+        star = `<i class="fa-solid fa-star" id="${i}" style="display: flex;"></i>`;
+      } else {
+        filledstar = `<i class="fa-regular fa-star" id="${i}" style="display: flex;"></i>`;
+        star = `<i class="fa-solid fa-star" id="${i}" style="display: none;"></i>`;
+      }
       let typesHTML = types.map(type => `<p class="power" style="background-color: ${typeColors[type]}">${type}</p>`).join('');
       imgElement.innerHTML = `
         <img src="${allpokemon.sprites.other["official-artwork"].front_default}" style="background: linear-gradient(180deg, ${typeColors[allpokemon.types[0].type.name]}, #65626200)">
@@ -50,6 +64,10 @@ async function fetchKantoPokemon() {
         <p class="pokemon">${allpokemon.name}</p>
         <div class="powerss">
           ${typesHTML}
+        </div>
+        <div class="stars">
+        ${star}
+        ${filledstar}
         </div>
       `;
 
@@ -83,7 +101,11 @@ async function searchwarofunction(){
     <p class="searchpokemon">${allpokemon.name}</p>
     <div class="searchpowerss">
           ${typesHTML}
-    </div>`;
+    </div>
+    <div class="stars">
+        <i class="fa-regular fa-star"></i>
+        <i class="fa-solid fa-star"></i>
+        </div>`;
     searchcard.style.display = "flex";
     notfound.style.display = "none";
     loading.style.display = "none";
@@ -159,7 +181,7 @@ listthepokemon();
 document.addEventListener("click", (event) => {
   localStorage.clear();
   const clickedCard = event.target.closest(".card");
-  const searchevent = event.target.closest(".searchcard")
+  const searchevent = event.target.closest(".searchcard");
   if (clickedCard) {
     const pokeimg = event.target.closest("img");
     const value = clickedCard.querySelector(".pokeid").textContent;
@@ -176,3 +198,71 @@ document.addEventListener("click", (event) => {
   }
 });
 
+let home = document.querySelector(".home");
+let play = document.querySelector(".play");
+let mylist = document.querySelector(".mylist");
+home.addEventListener("click", ()=>{
+  home.style.background = "rgba(255, 145, 0, 0.883)";
+  home.style.color = "white";
+  play.style.background = "none";
+  play.style.color = "rgba(0, 0, 0, 0.616)";
+  mylist.style.background = "none";
+  mylist.style.color = "rgba(0, 0, 0, 0.616)";
+})
+
+play.addEventListener("click", ()=>{
+  play.style.background = "rgba(255, 145, 0, 0.883)";
+  play.style.color = "white";
+  home.style.background = "none";
+  home.style.color = "rgba(0, 0, 0, 0.616)";
+  mylist.style.background = "none";
+  mylist.style.color = "rgba(0, 0, 0, 0.616)";
+})
+
+mylist.addEventListener("click", ()=>{
+  mylist.style.background = "rgba(255, 145, 0, 0.883)";
+  mylist.style.color = "white";
+  home.style.background = "none";
+  home.style.color = "rgba(0, 0, 0, 0.616)";
+  play.style.background = "none";
+  play.style.color = "rgba(0, 0, 0, 0.616)";
+  window.location.href = "favourite/index.html"
+})
+
+function showStar(star, filledstar) {
+  if (star && filledstar) {
+    star.style.display = "none";
+    filledstar.style.display = "flex";
+  }
+}
+
+function showFilledStar(star, filledstar) {
+  if (star && filledstar) {
+    star.style.display = "flex";
+    filledstar.style.display = "none";
+  }
+}
+
+document.addEventListener("click", (e) => {
+  console.log(e.target);
+  let star = e.target.classList.contains("fa-regular");
+  let filledstar = e.target.classList.contains("fa-solid");
+  console.log(filledstar);
+  if (star) {
+    let filledStarElement = e.target.nextElementSibling; // Assuming the filled star follows the regular star
+    showStar(e.target, filledStarElement);
+    let value = e.target.id;
+      stared.push(value)
+  } else if (filledstar) {
+    let starElement = e.target.previousElementSibling; // Assuming the regular star comes before the filled star
+    showFilledStar(starElement, e.target);
+    let value = e.target.id;
+    for(let i = 0; i < stared.length; i++){
+      if(value === stared[i]){
+        stared.splice(i, 1)
+      }
+    }
+  }
+    localStorage.setItem("stared", JSON.stringify(stared))
+    console.log(stared);
+});
