@@ -1,5 +1,5 @@
 let upgrade = [];
-let staredd = []
+let staredd = [];
 if(localStorage.getItem("stared")){
   staredd = JSON.parse(localStorage.getItem("stared"));
 }
@@ -51,8 +51,6 @@ const typeColors = {
   };
 
 let a = parseInt(localStorage.getItem("dtaKy").slice(1));
-// img.src = pokeimg;
-
 async function pokemon(){
     evolution.style.display = "none";
     pokename.style.display = "none"
@@ -62,10 +60,11 @@ async function pokemon(){
     let data2 = await fetch(`https://pokeapi.co/api/v2/pokemon/${a}`);
     let detail = await data2.json();
     let pokemon = await data.json();
+    parameter(detail.name)
     let filledstar = "none";
     let star = "flex";
       for(let m = 0; m < staredd.length; m++){
-      if(staredd[m] == a){
+      if(staredd[m] == detail.id){
             filledstar = "flex";
             star = "none"
           }
@@ -258,6 +257,7 @@ back.addEventListener("click", ()=>{
   let value = backpoknum.textContent;
   if(parseInt(value.slice(1)) > 0){
   localStorage.setItem('dtaKy', value);
+  parameter(parseInt(value.slice(1)));
   window.location.reload();
   }
 })
@@ -267,6 +267,7 @@ let forword = document.getElementById("forword")
 forword.addEventListener("click", ()=>{
   let value = forpoknum.textContent;
   if(parseInt(value.slice(1)) < 1011){
+  parameter(parseInt(value.slice(1)));
   localStorage.setItem('dtaKy', value);
   window.location.reload()}
 })
@@ -276,6 +277,7 @@ let circleimg = document.querySelector("#circleimg")
 document.addEventListener("click", (e)=>{
   if (e.target.classList.contains("circleimg")){
     let value = e.target.id;
+    parameter(parseInt(value.slice(1)));
     localStorage.setItem('dtaKy', value);
     window.location.reload()
   }
@@ -316,3 +318,11 @@ document.addEventListener("click", (e) => {
   }
     localStorage.setItem("stared", JSON.stringify(staredd))
 });
+
+function parameter(name){
+  window.history.pushState({}, "", `?name=${name}`);
+}
+
+document.querySelector(".Explore").addEventListener("click", ()=>{
+  window.location.href = "/Pokedex"
+})

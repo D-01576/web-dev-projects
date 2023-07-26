@@ -5,7 +5,7 @@
 }
 
 body{
-    background-image: url(background.png);
+    background-image: url(/Pokedex/img/background.png);
     display: flex;
     background-attachment: fixed;
     background-size: cover;
@@ -414,6 +414,18 @@ body{
         margin-bottom: 30px;
         transform: rotate(90deg);
     }
+    .forpoknum{
+        display: none;
+    }
+    .forpokname{
+        display: none;
+    }
+    .backpoknum{
+        display: none;
+    }
+    .backpokname{
+        display: none;
+    }
   }
 
   .namesp{
@@ -438,3 +450,30 @@ body{
     cursor: pointer;
     color: gold;
   }
+
+  .expol{
+    position: fixed;
+    height: 60px;
+    margin-bottom: 177px;
+    width: 100%;
+    display: flex;
+    justify-content: right;
+    align-items: center;
+  }
+  .expol .Explore{
+    cursor: pointer;
+    color: white;
+    height: 80%;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 18px;
+    outline: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    width: 150px;
+    border-radius: 10px;
+    background: rgba(56, 13, 244, 0.886);
+  }
+  

@@ -85,3 +85,35 @@ async function engine(){
         }
       })
     engine()
+
+    let home = document.querySelector(".home");
+let play = document.querySelector(".play");
+let mylist = document.querySelector(".mylist");
+home.addEventListener("click", ()=>{
+  home.style.background = "rgba(255, 145, 0, 0.883)";
+  home.style.color = "white";
+  play.style.background = "none";
+  play.style.color = "rgba(0, 0, 0, 0.616)";
+  mylist.style.background = "none";
+  mylist.style.color = "rgba(0, 0, 0, 0.616)";
+  window.location.href = "/Pokedex"
+})
+
+play.addEventListener("click", ()=>{
+  play.style.background = "rgba(255, 145, 0, 0.883)";
+  play.style.color = "white";
+  home.style.background = "none";
+  home.style.color = "rgba(0, 0, 0, 0.616)";
+  mylist.style.background = "none";
+  mylist.style.color = "rgba(0, 0, 0, 0.616)";
+})
+
+mylist.addEventListener("click", ()=>{
+  mylist.style.background = "rgba(255, 145, 0, 0.883)";
+  mylist.style.color = "white";
+  home.style.background = "none";
+  home.style.color = "rgba(0, 0, 0, 0.616)";
+  play.style.background = "none";
+  play.style.color = "rgba(0, 0, 0, 0.616)";
+  window.location.href = "/Pokedex/favourite/index.html"
+})

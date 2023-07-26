@@ -189,9 +189,13 @@ document.addEventListener("click", (event) => {
   if (clickedCard) {
     const pokeimg = event.target.closest("img");
     const value = clickedCard.querySelector(".pokeid").textContent;
+    const pokkname = clickedCard.querySelector(".pokemon").textContent;
     localStorage.setItem("pokeimg",pokeimg.getAttribute('src'))
     localStorage.setItem('dtaKy', value);
+    localStorage.setItem("pokemonname", pokkname)
     window.location.href = 'DescrivePokemon/index.html';
+    // event.preventDefault();
+    // window.history.pushState({},"",pokkname);
   }
   else if (searchevent) {
     const pokeimg = event.target.closest("img");
@@ -201,37 +205,6 @@ document.addEventListener("click", (event) => {
     window.location.href = 'DescrivePokemon/index.html';
   }
 });
-
-let home = document.querySelector(".home");
-let play = document.querySelector(".play");
-let mylist = document.querySelector(".mylist");
-home.addEventListener("click", ()=>{
-  home.style.background = "rgba(255, 145, 0, 0.883)";
-  home.style.color = "white";
-  play.style.background = "none";
-  play.style.color = "rgba(0, 0, 0, 0.616)";
-  mylist.style.background = "none";
-  mylist.style.color = "rgba(0, 0, 0, 0.616)";
-})
-
-play.addEventListener("click", ()=>{
-  play.style.background = "rgba(255, 145, 0, 0.883)";
-  play.style.color = "white";
-  home.style.background = "none";
-  home.style.color = "rgba(0, 0, 0, 0.616)";
-  mylist.style.background = "none";
-  mylist.style.color = "rgba(0, 0, 0, 0.616)";
-})
-
-mylist.addEventListener("click", ()=>{
-  mylist.style.background = "rgba(255, 145, 0, 0.883)";
-  mylist.style.color = "white";
-  home.style.background = "none";
-  home.style.color = "rgba(0, 0, 0, 0.616)";
-  play.style.background = "none";
-  play.style.color = "rgba(0, 0, 0, 0.616)";
-  window.location.href = "favourite/index.html"
-})
 
 function showStar(star, filledstar) {
   if (star && filledstar) {
