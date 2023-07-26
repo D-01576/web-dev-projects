@@ -22,7 +22,7 @@ body{
     align-items: center;
 }
 
-.namearea i{
+.first i, .second i{
     background: blue;
     display: flex;
     cursor: pointer;
@@ -414,4 +414,27 @@ body{
         margin-bottom: 30px;
         transform: rotate(90deg);
     }
+  }
+
+  .namesp{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .stars{
+    display: flex;
+    justify-content: center;
+  }
+  .fa-solid{
+    margin-left: 10px;
+    font-size: 25px;
+    cursor: pointer;
+    color: gold;
+  }
+
+  .fa-regular{
+    margin-left: 10px;
+    font-size: 25px;
+    cursor: pointer;
+    color: gold;
   }

@@ -1,4 +1,8 @@
 let upgrade = [];
+let staredd = []
+if(localStorage.getItem("stared")){
+  staredd = JSON.parse(localStorage.getItem("stared"));
+}
 
 let main = document.querySelector(".main")
 let loading = document.querySelector("#loading")
@@ -23,6 +27,7 @@ let backpoknum =  document.querySelector(".backpoknum")
 let backpokname = document.querySelector(".backpokname");
 let forpokname = document.querySelector(".forpokname")
 let forpoknum = document.querySelector(".forpoknum")
+let stars = document.querySelector(".stars");
 
 const typeColors = {
     normal: "#A8A77A",
@@ -57,6 +62,18 @@ async function pokemon(){
     let data2 = await fetch(`https://pokeapi.co/api/v2/pokemon/${a}`);
     let detail = await data2.json();
     let pokemon = await data.json();
+    let filledstar = "none";
+    let star = "flex";
+      for(let m = 0; m < staredd.length; m++){
+      if(staredd[m] == a){
+            filledstar = "flex";
+            star = "none"
+          }
+    }
+    stars.innerHTML = `
+        <i class="fa-regular fa-star" id="${detail.id}" style="display: ${star};"></i>
+        <i class="fa-solid fa-star" id="${detail.id}" style="display: ${filledstar};"></i>
+        `
 
     img.src = detail.sprites.other["official-artwork"].front_default
 
@@ -78,7 +95,6 @@ async function pokemon(){
     pokename.textContent = pokemon.name;
     id.textContent = '#'+pokemon.id.toString().padStart(4, "0");
 
-    console.log(detail);
     flavourText.textContent = pokemon.flavor_text_entries[0].flavor_text
 
     let hieghtinmeter = detail.height/10
@@ -96,8 +112,6 @@ async function pokemon(){
     weight.textContent = weightinlbs + " lbs"
 
     abilities.textContent = detail.abilities[0].ability.name
-
-    console.log(pokemon)
     let genderRate = pokemon.gender_rate
     if(genderRate <= 0){
         gender.textContent = "Male"
@@ -114,7 +128,6 @@ async function pokemon(){
     let weak = detectweakness(types)
     weak.forEach(element => {
         let el = element.toLowerCase();
-        console.log(el)
         let a = document.createElement("p");
         a.innerHTML = `<p class="weak" style="background-color: ${typeColors[el]}">${el}</p>`
         weakness.appendChild(a)
@@ -126,7 +139,6 @@ async function pokemon(){
     
     let hpval = Math.round(detail.stats[0].base_stat/10);
     let attckval = Math.round(detail.stats[1].base_stat/10);
-    console.log(attckval)
     let defenseval = Math.round(detail.stats[2].base_stat/10);
     let specialattackval = Math.round(detail.stats[3].base_stat/10);
     let specialdefenseval = Math.round(detail.stats[4].base_stat/10);
@@ -181,7 +193,6 @@ async function pokemon(){
       upgrade[1] = temp;
     }
     upgrade.push(detail.name)
-    console.log(upgrade)
     for(let i = 0; i < upgrade.length; i++){
       let a = document.createElement("div");
       a.classList = "circlecard";
@@ -267,8 +278,41 @@ document.addEventListener("click", (e)=>{
     let value = e.target.id;
     localStorage.setItem('dtaKy', value);
     window.location.reload()
-    console.log(value)
   }
 })
 pokemon()
-//   console.log("jkasd")
+
+function showStar(star, filledstar) {
+  if (star && filledstar) {
+    star.style.display = "none";
+    filledstar.style.display = "flex";
+  }
+}
+
+function showFilledStar(star, filledstar) {
+  if (star && filledstar) {
+    star.style.display = "flex";
+    filledstar.style.display = "none";
+  }
+}
+
+document.addEventListener("click", (e) => {
+  let star = e.target.classList.contains("fa-regular");
+  let filledstar = e.target.classList.contains("fa-solid");
+  if (star) {
+    let filledStarElement = e.target.nextElementSibling; // Assuming the filled star follows the regular star
+    showStar(e.target, filledStarElement);
+    let value = e.target.id;
+      staredd.push(value)
+  } else if (filledstar) {
+    let starElement = e.target.previousElementSibling; // Assuming the regular star comes before the filled star
+    showFilledStar(starElement, e.target);
+    let value = e.target.id;
+    for(let i = 0; i < staredd.length; i++){
+      if(value == staredd[i]){
+        staredd.splice(i, 1)
+      }
+    }
+  }
+    localStorage.setItem("stared", JSON.stringify(staredd))
+});

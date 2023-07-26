@@ -342,9 +342,15 @@ body{
   }
 
   .stars .fa-regular{
+    color: gold;
+    font-size: 20px;
     cursor: pointer;
+    margin-bottom: 10px;
   }
 
   .stars .fa-solid{
+    color: gold;
+    font-size: 20px;
     cursor: pointer;
+    margin-bottom: 10px;
   }

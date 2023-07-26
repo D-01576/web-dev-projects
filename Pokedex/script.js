@@ -1,7 +1,7 @@
 let stared = [];
-// if(localStorage.getItem("stared")){
-// stared = JSON.parse(localStorage.getItem("stared"))
-// }
+if(localStorage.getItem("stared")){
+stared = JSON.parse(localStorage.getItem("stared"))
+}
 
 let main = document.querySelector(".main");
 let leadddd = document.querySelector(".leaadmore");
@@ -48,14 +48,13 @@ async function fetchKantoPokemon() {
       let imgElement = document.createElement("div");
       imgElement.className = "card";
 
-      let filledstar;
-      let star;
-      if (stared.includes(i)) {
-        filledstar = `<i class="fa-regular fa-star" id="${i}" style="display: none;"></i>`;
-        star = `<i class="fa-solid fa-star" id="${i}" style="display: flex;"></i>`;
-      } else {
-        filledstar = `<i class="fa-regular fa-star" id="${i}" style="display: flex;"></i>`;
-        star = `<i class="fa-solid fa-star" id="${i}" style="display: none;"></i>`;
+      let filledstar = "none";
+      let star = "flex";
+      for(let m = 0; m < stared.length; m++){
+       if(stared[m] == i){
+            filledstar = "flex";
+            star = "none"
+          }
       }
       let typesHTML = types.map(type => `<p class="power" style="background-color: ${typeColors[type]}">${type}</p>`).join('');
       imgElement.innerHTML = `
@@ -66,13 +65,12 @@ async function fetchKantoPokemon() {
           ${typesHTML}
         </div>
         <div class="stars">
-        ${star}
-        ${filledstar}
+        <i class="fa-regular fa-star" id="${i}" style="display: ${star};"></i>
+        <i class="fa-solid fa-star" id="${i}" style="display: ${filledstar};"></i>
         </div>
       `;
 
       main.appendChild(imgElement);
-      console.log(allpokemon);
     } catch (error) {
     }
   }
@@ -95,6 +93,14 @@ async function searchwarofunction(){
 
     let typesHTML = types.map(type => `<p class="searchpower" style="background-color: ${typeColors[type]}">${type}</p>`).join('');
 
+    let filledstar = "none";
+      let star = "flex";
+      for(let m = 0; m < stared.length; m++){
+       if(stared[m] == allpokemon.id){
+            filledstar = "flex";
+            star = "none"
+          }
+      }
     searchcard.innerHTML = `
     <img src="${allpokemon.sprites.other["official-artwork"].front_default}" style="background: linear-gradient(180deg, ${typeColors[allpokemon.types[0].type.name]}, #65626200">
     <p class="searchpokeid">#${allpokemon.id.toString().padStart(4, "0")}</p>
@@ -103,13 +109,12 @@ async function searchwarofunction(){
           ${typesHTML}
     </div>
     <div class="stars">
-        <i class="fa-regular fa-star"></i>
-        <i class="fa-solid fa-star"></i>
+        <i class="fa-regular fa-star" id="${allpokemon.id}" style="display: ${star};"></i>
+        <i class="fa-solid fa-star" id="${allpokemon.id}" style="display: ${filledstar};"></i>
         </div>`;
     searchcard.style.display = "flex";
     notfound.style.display = "none";
     loading.style.display = "none";
-    console.log(allpokemon)
   } catch (error) {
     loading.style.display = "none";
     notfound.style.display = "flex";
@@ -135,7 +140,6 @@ async function listthepokemon(){
     nameof.innerHTML = `<option value="${allpokemon.name}">`;
     pokelist.appendChild(nameof);
   } catch (error) {
-    console.log("");
   }
 }
 }
@@ -244,10 +248,8 @@ function showFilledStar(star, filledstar) {
 }
 
 document.addEventListener("click", (e) => {
-  console.log(e.target);
   let star = e.target.classList.contains("fa-regular");
   let filledstar = e.target.classList.contains("fa-solid");
-  console.log(filledstar);
   if (star) {
     let filledStarElement = e.target.nextElementSibling; // Assuming the filled star follows the regular star
     showStar(e.target, filledStarElement);
@@ -264,5 +266,4 @@ document.addEventListener("click", (e) => {
     }
   }
     localStorage.setItem("stared", JSON.stringify(stared))
-    console.log(stared);
 });
