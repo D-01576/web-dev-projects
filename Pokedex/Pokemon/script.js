@@ -60,6 +60,7 @@ async function pokemon(){
     let data2 = await fetch(`https://pokeapi.co/api/v2/pokemon/${a}`);
     let detail = await data2.json();
     let pokemon = await data.json();
+    document.title = detail.name;
     parameter(detail.name)
     let filledstar = "none";
     let star = "flex";

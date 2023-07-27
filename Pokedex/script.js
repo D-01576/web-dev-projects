@@ -193,7 +193,7 @@ document.addEventListener("click", (event) => {
     localStorage.setItem("pokeimg",pokeimg.getAttribute('src'))
     localStorage.setItem('dtaKy', value);
     localStorage.setItem("pokemonname", pokkname)
-    window.location.href = 'DescrivePokemon/index.html';
+    window.location.href = 'Pokemon/index.html';
     // event.preventDefault();
     // window.history.pushState({},"",pokkname);
   }
@@ -202,7 +202,7 @@ document.addEventListener("click", (event) => {
     const value = searchevent.querySelector(".searchpokeid").textContent;
     localStorage.setItem("pokeimg",pokeimg.getAttribute('src'))
     localStorage.setItem('dtaKy', value);
-    window.location.href = 'DescrivePokemon/index.html';
+    window.location.href = 'Pokemon/index.html';
   }
 });
 

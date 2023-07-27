@@ -1,0 +1,296 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    height: 100vh;
+    width: 100vw;
+    background: url(/Pokedex/img/background.png);
+    background-attachment: fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+nav{
+    background: #ffffff;
+    height: 60px;
+    width: 100%;
+  }
+  nav .pokkl{
+    margin-left: 30px;
+    width: 150px;
+    margin-top: -12px;
+  }
+  nav ul{
+    float: right;
+    margin-right: 20px;
+  }
+  nav ul li{
+    display: inline-block;
+    line-height: 60px;
+    margin: 0 5px;
+  }
+  nav ul li a{
+    color: rgba(0, 0, 0, 0.616);
+    text-decoration: none;
+    font-weight: 900;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 30px;
+    font-size: 17px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+  }
+  a.active,a:hover{
+    background: rgba(255, 145, 0, 0.883);
+    color : white;
+    transition: .5s;
+  }
+  .checkbtn{
+    font-size: 30px;
+    color: rgba(85, 83, 83, 0.838);
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+  }
+  #check{
+    display: none;
+  }
+
+  .main{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .main .container{
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .portionout{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .portionout .out{
+    font-size: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+    color: white;
+  }
+  .portionout button{
+    cursor: pointer;
+    display: block;
+    width: 150px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 30px;
+    color: white;
+    background: rgb(228, 152, 9);
+  }
+  .main .start{
+    cursor: pointer;
+    display: block;
+    width: 150px;
+    height: 50px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 30px;
+    color: white;
+    background: rgb(228, 152, 9);
+  }
+  .main .start:hover{
+    box-shadow: 0 0px 6px white;
+  }
+
+  .just{
+    display: flex;
+    gap: 5px;
+  }
+  .just .fa-heart{
+    font-size: 20px;
+    color: red;
+  }
+  
+  .main .question{
+    margin-left: 30px;
+    height: 320px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .main .question div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .next{
+    color: white;
+    background: rgb(12, 60, 111);
+    height: 40px;
+    
+    font-size: 23px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+  .main .question .quiz{
+    color: white;
+  }
+
+  .main .question .timer{
+    background: white;
+    width: 70px;
+    border-radius: 50%;
+    display: flex;
+    font-size: 30px;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 70px;
+    border: 3px solid green;
+  }
+
+  .main img{
+    width: 300px;
+    height: 300px;
+    padding: 30px;
+    filter: brightness(0);
+  }
+  .main .setimg{
+    border-radius: 10%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: white;
+  }
+  .main .setimg p{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight: bold;
+    font-size: 30px;
+  }
+  .main .option{
+    width: 350px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: start;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  .main .option h3{
+    padding: 5px;
+    cursor: pointer;
+    text-align: left;
+    width: 150px;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    color: white;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border-radius: 8px;
+    background: orange;
+  }
+
+  .main .option button:hover{
+    box-shadow: 0 0px 3px whitesmoke;
+  }
+
+  #loading{
+    display: none;
+    color: white;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 150px;
+  }
+
+  .load{
+    display: none;
+  }
+  .load i{
+    margin-top: 160px;
+    font-size: 110px;
+    animation: load 2s infinite;
+    color: white;
+  }
+
+  .load h2{
+    margin-top: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-weight:bold;
+    font-size: 20px;
+    color: white;
+  }
+
+  @keyframes load{
+    50%{
+      transform: rotate(180deg);
+    }
+    100%{
+      transform: rotate(360deg);
+    }
+  }
+  @media (max-width: 952px){
+    label.logo{
+      font-size: 30px;
+      padding-left: 50px;
+    }
+    nav ul li a{
+      font-size: 16px;
+    }
+  }
+  @media (max-width: 858px){
+    .checkbtn{
+      display: block;
+    }
+    ul{
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      background: #063838;
+      top: 60px;
+      left: -100%;
+      text-align: center;
+      transition: all .5s;
+      display: flex;
+      /* justify-content: space-around; */
+      align-items: center;
+      flex-direction: column;
+      /* gap: 30px; */
+    }
+    nav ul li{
+      display: block;
+      margin: 50px 0;
+      line-height: 30px;
+    }
+    nav ul li a{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      font-size: 20px;
+    }
+    a:hover,a.active{
+      background: none;
+      color: #0082e6;
+    }
+    #check:checked ~ ul{
+      left: 0;
+    }
+  }
