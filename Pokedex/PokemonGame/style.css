@@ -13,6 +13,9 @@ body{
     flex-direction: column;
     align-items: center;
 }
+body::-webkit-scrollbar{
+  display: none;
+}
 nav{
     background: #ffffff;
     height: 60px;
@@ -140,7 +143,6 @@ nav{
     color: white;
     background: rgb(12, 60, 111);
     height: 40px;
-    
     font-size: 23px;
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     border: none;
@@ -256,6 +258,43 @@ nav{
     }
   }
   @media (max-width: 858px){
+    /* .main{
+      height: 10px;
+    } */
+    .container{
+      margin-top: 100px;
+      flex-direction: column;
+    }
+    .main .setimg img{
+      width: 220px;
+      height: 220px;
+    }
+    .main .setimg p{
+      font-size: 20px;
+    }
+    .main .option{
+      width: 260px;
+    }
+    .main .option h3{
+      width: 80px;
+      font-size: 14px;
+    }
+    .next{
+      width: 260px;
+    }
+    .main .question{
+      margin-top: 20px;
+      margin-right: 20px;
+      height: 220px;
+    }
+    .main .question .quiz{
+      font-size: 15px;
+    }
+    .main .question .timer{
+      width: 50px;
+      height: 50px;
+      font-size: 23px;
+    }
     .checkbtn{
       display: block;
     }

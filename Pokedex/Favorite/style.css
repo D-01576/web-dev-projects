@@ -216,3 +216,7 @@ body::-webkit-scrollbar{
       left: 0;
     }
   }
+
+  body::-webkit-scrollbar{
+    display: none;
+  }

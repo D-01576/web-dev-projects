@@ -426,6 +426,16 @@ body{
     .backpokname{
         display: none;
     }      
+    .namesp .name{
+        margin-left: 30px;
+        font-size: 20px;
+    }
+    .namesp .id{
+        font-size: 20px;
+    }
+    .namesp i{
+        font-size: 20px;
+    }
   }
 
   .namesp{
@@ -477,3 +487,6 @@ body{
     background: rgba(56, 13, 244, 0.886);
   }
   
+  body::-webkit-scrollbar{
+    display: none;
+  }

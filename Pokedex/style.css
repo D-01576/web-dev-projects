@@ -30,6 +30,10 @@ body{
     align-items: center;
 }
 
+.container::-webkit-scrollbar{
+  display: none;
+}
+
 .main {
     justify-content: center;
     align-items: center;
@@ -358,7 +362,13 @@ body{
     }
   }
   @media (max-width: 858px){
+    .pokenot{
+      font-size: 20px;
+    }
 
+    .card{
+      margin-right: 30px;
+    }
     .searchbox{
       width: 100%;
       margin-left: 0;

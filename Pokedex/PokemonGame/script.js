@@ -80,13 +80,16 @@ async function game(){
                 timer.textContent = time;
                 tr();
             }
-            else if(time === 0){
+            else if(time === 0 && isOptionClicked === false){
                 next.style.display = "inline";
                 wrongvoice.play();
                 lifes--;
                 isOptionClicked = true;
                 img.style.filter = "brightness(1)"
                 gameout()
+            }
+            else if(time === 1 && isOptionClicked === false){
+                isOptionClicked = true;
             }
             else{
                 isOptionClicked = true;
