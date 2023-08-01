@@ -1,0 +1,98 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100wh;
+    background: linear-gradient(220deg, #078fff, #01ddff);
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main{
+    width: 350px;
+    background: rgba(255, 255, 255, 0.712);
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.main .namecast{
+    font-size: 20px;
+    color: #033f48;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.main .savearea{
+    margin-top: 10px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.main .save{
+    width: 260px;
+    padding-left: 20px;
+    font-size: 20px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    height: 40px;
+}
+.main .savebtn{
+    width: 40px;
+    cursor: pointer;
+    border-radius: 10px;
+    border:none;
+    color: white;
+    font-size: 25px;
+    background: rgb(255, 170, 0);
+    height: 40px;
+}
+
+.main .markarea{
+    display: flex;
+    margin-top: 20px;
+    max-height: 300px;
+    overflow-y: scroll;
+    flex-direction: column;
+}
+
+.markarea::-webkit-scrollbar{
+    width: 15px;
+}
+.markarea::-webkit-scrollbar-track{
+    background: rgb(0, 157, 255);
+    border-radius: 10px
+}
+.markarea::-webkit-scrollbar-thumb
+{
+    border-radius: 10px;
+    background: linear-gradient(120deg, #0d414a,#0109ff);
+}
+
+.main .markarea .areasaved{
+    display: flex;
+    margin-top: 8px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.savedtext{
+    font-size: 20px;
+    /* width: 100px; */
+    /* background: white; */
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 10px;
+}
+.cancel{
+    margin-right: 10px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    cursor: pointer;
+}

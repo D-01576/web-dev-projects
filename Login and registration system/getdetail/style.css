@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(90deg, #C7C5F4, #776BCC);	
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.main #uploadPreview{
+    width: 200px;
+    border: 2px solid #776BCC;
+    box-shadow: 0 0px 9px #776BCC;
+    height: 200px;
+    border-radius: 50%;
+}
+
+.main #uploadImage{
+    display: none;
+}
+.main #uploadButton{
+    background: white;
+    font-size: 15px;
+    margin-top: -50px;
+    padding: 10px;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    margin-left: 75%;
+}
+
+.main .name{
+    margin-top: 25px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.main #uploadButton:hover{
+    cursor: pointer;
+    background: rgb(133, 128, 128);
+}

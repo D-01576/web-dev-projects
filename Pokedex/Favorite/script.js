@@ -65,7 +65,7 @@ async function engine(){
           const value = clickedCard.querySelector(".pokeid").textContent;
           localStorage.setItem("pokeimg",pokeimg.getAttribute('src'))
           localStorage.setItem('dtaKy', value);
-          window.location.href = '/Pokedex/Pokemon/';
+          window.location.href = '../Pokemon/index.html';
         }
       });
       document.addEventListener("click", (e)=>{

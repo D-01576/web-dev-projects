@@ -325,5 +325,5 @@ function parameter(name){
 }
 
 document.querySelector(".Explore").addEventListener("click", ()=>{
-  window.location.href = "/Pokedex"
+  window.location.href = "../index.html"
 })

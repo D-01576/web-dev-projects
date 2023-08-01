@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/all.css'>
+<link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.2.0/css/fontawesome.css'>
+<link rel="stylesheet" href="./style.css">
+<link rel="icon" type="image/x-icon" href="../img/portant.jpeg">
+<script src="./env.js"></script>
+</head>
+<body>
+<div class="container">
+	<div class="screen">
+		<div class="screen__content">
+			<form class="login">
+				<div class="login__field">
+					<i class="login__icon fas fa-user"></i>
+					<input type="email" class="login__input" placeholder="Email" id="email">
+				</div>
+				<div class="login__field">
+					<i class="login__icon fas fa-lock"></i>
+					<input type="password" class="login__input" placeholder="Password" id="password">
+				</div>
+				<div class="forgotandsignupfield">
+					<a href="" class="forgot">forget password? </a><span class="text"></span>
+					<p class="forgot">Not have account! <a href="./registration/index.html" id="i">sign-Up</a></p>
+				</div>
+				<button id="button login__submit" class="button login__submit">
+					<span class="button__text">Log In Now</span>
+					<i class="button__icon fas fa-chevron-right"></i>
+				</button>			
+			</form>
+			<div class="social-login">
+				<h3>log in via</h3>
+				<div class="social-icons">
+					<a class="social-login__icon fab fa-google" id="google"></a>
+					<a class="social-login__icon fab fa-facebook" id="facebook"></a>
+					<a class="social-login__icon fab fa-twitter" id="twitter"></a>
+				</div>
+			</div>
+		</div>
+		<div class="screen__background">
+			<span class="screen__background__shape screen__background__shape4"></span>
+			<span class="screen__background__shape screen__background__shape3"></span>		
+			<span class="screen__background__shape screen__background__shape2"></span>
+			<span class="screen__background__shape screen__background__shape1"></span>
+		</div>		
+	</div>
+</div>
+<script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-firestore.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
