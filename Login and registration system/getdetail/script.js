@@ -45,16 +45,17 @@ firebase.auth().onAuthStateChanged((user) => {
 
 const data = db.collection("users");
 
-function PreviewImage() {
+async function PreviewImage() {
     var oFReader = new FileReader();
     oFReader.readAsDataURL(document.getElementById("uploadImage").files[0]);
 
-    oFReader.onload = function (oFREvent) {
-        img.src = oFREvent.target.result;
-        console.log(oFREvent.target.result)
-        db.collection("users").doc(userId).update({
-        photo : oFREvent.target.result
-        });
+    oFReader.onload = async function (oFREvent) {
+        let src = oFREvent.target.result
+        await data.doc(userId).update({
+          photo : src
+        })
+        img.src = src;
+        console.log(src)
     };
 };
 data.get().then((q) => {
@@ -78,7 +79,7 @@ data.get().then((q) => {
 uploadButton.addEventListener("click", () => {
     fileInput.click();
   });
-Deleted.addEventListener("click", async()=>{
+Deleted.addEventListener("click", async ()=>{
     const res = await db.collection('users').doc(userId).delete()
     firebase.auth().currentUser.delete().then(()=>{
         window.location.href = "../index.html";

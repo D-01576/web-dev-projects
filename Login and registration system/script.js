@@ -50,12 +50,12 @@ forgot.addEventListener("click",(e)=>{
 google.addEventListener("click",(e)=>{
     e.preventDefault();
     const provider = new firebase.auth.GoogleAuthProvider();
-    firebase.auth().signInWithPopup(provider).then((user)=>{
+    firebase.auth().signInWithPopup(provider).then(async (user)=>{
         const userId = user.user.uid; 
         const encodedUserId = encodeURIComponent(userId);
         const db = firebase.firestore();
         console.log(db)
-        db.collection("users").get().then((q) => {
+        await db.collection("users").get().then((q) => {
             let check = 0;
             q.forEach((doc) => {
                 if(doc.id === userId){
@@ -74,9 +74,9 @@ google.addEventListener("click",(e)=>{
           });
         setTimeout(() => {
             window.location.href = `./getdetail/index.html?userId=${encodedUserId}`;
-        }, 3000);
+        },3000);
     }).catch((error)=>{
-        console.log("error",error)
+        alert("TRY AGAIN: ERROR")
     })
 })
 
@@ -109,7 +109,7 @@ facebook.addEventListener("click",(e)=>{
             window.location.href = `./getdetail/index.html?userId=${encodedUserId}`;
         }, 3000);
     }).catch((error)=>{
-        console.log("error",error)
+        alert("TRY AGAIN: ERROR")
     })
 })
 
@@ -142,7 +142,7 @@ twitter.addEventListener("click",(e)=>{
             window.location.href = `./getdetail/index.html?userId=${encodedUserId}`;
         }, 3000);
     }).catch((error)=>{
-        console.log("error",error)
+        alert("TRY AGAIN: ERROR")
     })
 })
 
