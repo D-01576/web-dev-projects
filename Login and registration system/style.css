@@ -167,6 +167,7 @@ body {
 }
 
 .social-login__icon {
+	cursor: pointer;
 	padding: 20px 10px;
 	color: #fff;
 	text-decoration: none;	

@@ -148,3 +148,11 @@ body{
       transform: rotate(360deg);
     }
   }
+
+  button{
+    cursor: pointer;
+  }
+
+  button:hover{
+    border: 2px solid rgb(0, 47, 255);
+  }

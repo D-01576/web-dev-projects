@@ -35,6 +35,24 @@ firebase.auth().onAuthStateChanged((user) => {
       else{
         permission.style.display = "none"
         main.style.display = "none"
+        data.get().then((q) => {
+          q.forEach((doc) => {
+            if(doc.id === userId){
+                document.title = namee.textContent = doc.data().name;
+                main.style.display = "flex";
+                loading.style.display = "none"
+                namee.textContent = doc.data().name
+                email.textContent = doc.data().email
+                console.log(doc.data())
+                if(doc.data().photo){
+                    console.log("c")
+                    img.src = doc.data().photo;
+                }
+            }
+          });
+        }).catch((error) => {
+          console.log("Error getting documents:", error);
+        });
       }
     } else {
       main.style.display = "none";
@@ -58,23 +76,6 @@ async function PreviewImage() {
         console.log(src)
     };
 };
-data.get().then((q) => {
-  q.forEach((doc) => {
-    if(doc.id === userId){
-        main.style.display = "flex";
-        loading.style.display = "none"
-        namee.textContent = doc.data().name
-        email.textContent = doc.data().email
-        console.log(doc.data())
-        if(doc.data().photo){
-            console.log("c")
-            img.src = doc.data().photo;
-        }
-    }
-  });
-}).catch((error) => {
-  console.log("Error getting documents:", error);
-});
 
 uploadButton.addEventListener("click", () => {
     fileInput.click();
