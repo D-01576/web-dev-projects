@@ -1,7 +1,8 @@
 window.env = {
     API_SECRET: {
         apiKey: "AIzaSyB7IHAWUQQcFAhu2_ldiRmtHVX4qIyO1Ak",
-        authDomain: "login-and-regiter.firebaseapp.com",
+        // authDomain: "login-and-regiter.firebaseapp.com",
+        authDomain: "masiphyth.store",
         projectId: "login-and-regiter",
         storageBucket: "login-and-regiter.appspot.com",
         messagingSenderId: "583431533285",

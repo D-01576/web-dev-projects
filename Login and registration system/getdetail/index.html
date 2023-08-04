@@ -9,11 +9,27 @@
     <script src="../env.js"></script>
 </head>
 <body>
+    <div id="loading">
+        <i class="fa fa-spinner fa"></i>
+        <h2>loading...</h2>
+        </div>
     <div class="main">
     <img id="uploadPreview" src="../img/profile.png">
     <input id="uploadImage" type="file" name="myPhoto" onchange="PreviewImage();" />
     <i class="fa-solid fa-user-pen" id="uploadButton"></i>
     <h2 class="name"></h2>
+    <h2 class="email"></h2>
+    <button id="delete">Delete</button>
+    <button id="Sign-Out">Sign-Out</button>
+    </div>
+    <div class="errors">
+        <div class="permission">
+            <h2>you dont have permission for this stage</h2>
+        </div>
+        <div class="siign">
+            <h2>you are not signed</h2>
+            <button class="login"><a href='/'>Sign In</a></button>
+        </div>
     </div>
     <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-auth.js"></script>

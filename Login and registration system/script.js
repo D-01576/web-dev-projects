@@ -66,6 +66,7 @@ google.addEventListener("click",(e)=>{
             if (check == 0){
                 db.collection("users").doc(user.user.uid).set({
                     name: user.user.displayName,
+                    email: user.user.email,
                 })
             }
           }).catch((error) => {
@@ -98,6 +99,7 @@ facebook.addEventListener("click",(e)=>{
             if (check == 0){
                 db.collection("users").doc(user.user.uid).set({
                     name: user.user.displayName,
+                    email: user.user.email,
                 })
             }
           }).catch((error) => {
@@ -130,6 +132,7 @@ twitter.addEventListener("click",(e)=>{
             if (check == 0){
                 db.collection("users").doc(user.user.uid).set({
                     name: user.user.displayName,
+                    email: user.user.email,
                 })
             }
           }).catch((error) => {
