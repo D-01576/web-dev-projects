@@ -1,47 +1,111 @@
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.1/firebase-app.js";
-import { getAuth, GoogleAuthProvider, signInWithPopup, signOut} from "https://www.gstatic.com/firebasejs/9.0.1/firebase-auth.js";
+let sendbtn = document.querySelector(".send")
+let main = document.querySelector(".main")
+let entername = document.querySelector(".enternamae")
+let username= "jsdf";
+let logout = document.querySelector(".logout")
+const firebaseConfig = window.env.API_SECRET;
+firebase.initializeApp(firebaseConfig);
+let database = firebase.database().ref("messages")
 
-let img  = document.querySelector(".img")
-const firebaseConfig = {
-  apiKey: "AIzaSyCIDf2PZWsgSJ0mqIvXG6-ygNAjVQS37fk",
-  authDomain: "chatbase-5c506.firebaseapp.com",
-  databaseURL: "https://chatbase-5c506-default-rtdb.firebaseio.com",
-  projectId: "chatbase-5c506",
-  storageBucket: "chatbase-5c506.appspot.com",
-  messagingSenderId: "968490273314",
-  appId: "1:968490273314:web:20be098c47ada8e938d87b",
-  measurementId: "G-MEMGMPBRCB"
-};
+function messagese(){
+  let message = document.querySelector(".input")
+  if(message.value !== ""){
+  const userData = {
+    name: username,
+    message : message.value,
+  };
 
-const app = initializeApp(firebaseConfig);
+  database.push(userData)
 
-const auth = getAuth();
-
-function signIn() {
-  const provider = new GoogleAuthProvider();
-
-  signInWithPopup(auth, provider)
-    .then((result) => {
-      const user = result.user;
-      console.log("Logged in user:", user);
-      img.src = user.photoURL;
-    })
-    .catch((error) => {
-      console.error("Google Sign-In Error:", error);
-    });
+  message.value = ""
+}
 }
 
-export function signOutt() {
-  signOut(auth)
-    .then(() => {
-      console.log("User signed out successfully.");
-      img.src = "jjs";
-      img.alt = "signouted"
-    })
-    .catch((error) => {
-      console.error("Sign-Out Error:", error);
-      img.alt = "sign outkn"
-    });
+function displayMessage(nawme, message) {
+  // logout.textContent = username + "~ logout"
+
+  const chatDiv = document.querySelector('.chatarea');
+  const chat = document.createElement("div")
+  chat.classList = "chat";
+  const messageDiv = document.createElement('p');
+  const name  = document.createElement("h2")
+  name.className = "name"
+  messageDiv.className = "message"
+  messageDiv.innerText = message;
+  name.innerHTML = nawme
+  chat.appendChild(name)
+  chat.appendChild(messageDiv)
+  chatDiv.appendChild(chat);
+
+  const chatareaElement = document.querySelector('.chatarea');
+
+  chatareaElement.scrollTo({
+    top: chatareaElement.scrollHeight,
+    behavior: 'smooth'
+  });
 }
-document.getElementById("signInWithGoogle").addEventListener("click", signIn);
-document.getElementById("signOutBtn").addEventListener("click", signOutt)
+
+function listenForMessages() {
+  const messagesRef = database;
+
+  messagesRef.on('child_added', (snapshot) => {
+    const message = snapshot.val().message;
+    const name = snapshot.val().name;
+    displayMessage(name,message);
+  });
+}
+
+window.onload = listenForMessages;
+
+sendbtn.addEventListener("click", messagese)
+
+document.querySelector(".input").addEventListener("keypress",(e)=>{
+  if(e.key === "Enter"){
+    messagese()
+  }
+})
+
+function reca(){
+if(localStorage.getItem("username")){
+    username = localStorage.getItem("username")
+    main.style.display = "block";
+    entername.style.display = "none"
+}
+else{
+  main.style.display = "none";
+  entername.style.display = "flex"
+}
+
+logout.textContent = username + "~ logout"
+}
+
+function setusername(){
+  let inputname = document.querySelector(".inputname");
+  if(inputname.value.length < 3){
+  alert("The minimun character limit is 3")
+  }
+  else{
+    localStorage.setItem("username", inputname.value)
+    inputname.value = "";
+    document.querySelector(".input").value = ""
+  }
+}
+
+document.querySelector(".inputname").addEventListener("keypress",(e)=>{
+  if(e.key === "Enter"){
+    setusername()
+    reca()
+  }
+})
+
+document.querySelector(".enter").addEventListener("click",()=>{
+  setusername()
+  reca()
+})
+
+reca()
+
+logout.addEventListener("click",()=>{
+  localStorage.clear();
+  reca()
+})

@@ -1,0 +1,128 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(130deg, #000000,#003b58af);
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.main{
+    background: rgba(255, 255, 255, 0.626);
+    width: 900px;
+    border-radius: 20px;
+    padding: 30px;
+    height: 1200px;
+}
+
+.main .chat{
+    background: rgba(43, 66, 72, 0.79);
+    /* min-width: 200px; */
+    padding-top: 20px;
+    border-radius: 20px;
+    border-top-left-radius: 0px;
+    max-width: 610px;
+    display: flex;
+    margin-top: 30px;
+    flex-direction: column;
+    /* justify-content: center; */
+    /* align-items: center; */
+}
+
+.main .chat .name{
+
+    padding-left: 20px;
+    font-size: 30px;
+    font-family:'Times New Roman', Times, serif;
+    color: rgb(4, 255, 134);
+    
+}
+
+.main .chat .message{
+    width: 90%;
+    padding-left: 20px;
+    color: aliceblue;
+    font-size: 40px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.chatarea{
+    transition: 5s;
+    height: 1000px;
+    overflow-y: scroll;
+    display: flex;
+    transition: 31s;
+    flex-direction: column;
+}
+
+.main .enter{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.main .enter .input
+{
+    width: 700px;
+    font-size: 35px;
+    padding-left: 30px;
+    border-radius: 10px;
+    height: 100px;
+}
+
+.main .enter .send{
+    width: 100px;
+    height: 100px;
+    border-radius: 30px;
+    font-size: 30px;
+}
+
+.enternamae{
+    background: rgba(59, 161, 234, 0.455);
+    width: 700px;
+    border-radius: 50px;
+    height: 230px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.enternamae input{
+    width: 500px;
+    height: 100px;
+    font-size: 30px;
+    padding-left: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    border-radius: 30px;
+}
+
+.enternamae button{
+    height: 100px;
+    border-radius: 30px;
+    width: 100px;
+    font-size: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.logout{
+    text-align: center;
+    cursor: pointer;
+    font-size: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-top: 15px;
+}
+.logout:hover{
+    color: rgba(15, 20, 19, 0.607);
+}
+
+button:hover{
+    cursor: pointer;
+}

@@ -1,14 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Your Web App</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chatbase</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="./env.js"></script>
 </head>
 <body>
-
-  <button id="signInWithGoogle">Sign in with Google</button>
-  <button id="signOutBtn">Sign out</button>
-    <img src="" alt="me" class="img">
-  <!-- Import your app.js file using CDN -->
-  <script type="module" src="app.js" class="img"></script>
+  <div class="enternamae">
+    <input type="text" class="inputname" placeholder="Name" maxlength="10">
+    <button class="enter">enter</button>
+  </div>
+    <div class="main">
+        <div class="chatarea">
+            
+        </div>
+        <div class="enter">
+          <input type="text" class="input" placeholder="Type a message">
+          <button class="send">send</button>
+        </div>
+        <h2 class="logout">logout</h2>
+    </div>
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.0/firebase-database.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
