@@ -1,0 +1,369 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: linear-gradient(135deg,  rgb(0, 0, 0), rgb(15, 9, 45));
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    /* cursor: none; */
+    /* height: 120vh; */
+    overflow: none;
+    cursor:auto;
+}
+
+/* .dot{
+    width: 5px;
+    height: 5px;
+    background-color: #ff5722;
+    border-radius: 50%;
+    position: inherit;
+    pointer-events: none;
+    transition: width 0.3s, height 0.3s, transform 0.1s;
+}
+.circle{
+    width: 25px;
+    height: 25px;
+    border:3px solid white;
+    border-radius: 50%;
+    position: inherit;
+    transition: 0.5s;
+} */
+
+a{
+    text-decoration: none;
+}
+
+nav{
+    height: 60px;
+    background: linear-gradient(180deg, rgba(5, 5, 6, 0.69),rgba(27, 26, 26, 0.409));
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+  }
+  nav h2{
+    margin-left: 30px;
+    font-size: 50px;
+    color: white;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  nav span{
+    color:orangered;
+  }
+  nav ul{
+    float: right;
+    margin-right: 20px;
+  }
+  nav ul li{
+    display: inline-block;
+    line-height: 60px;
+    margin: 0 5px;
+  }
+  nav ul li a{
+    color: rgb(109, 102, 102);
+    text-decoration: none;
+    font-weight: 900;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 30px;
+    font-size: 17px;
+    padding: 7px 13px;
+    border-radius: 3px;
+    text-transform: uppercase;
+  }
+  a.active,a:hover{
+    color : white;
+    transition: .5s;
+  }
+  .checkbtn{
+    font-size: 30px;
+    color: rgba(85, 83, 83, 0.838);
+    float: right;
+    line-height: 80px;
+    margin-right: 40px;
+    cursor: pointer;
+    display: none;
+  }
+  #check{
+    display: none;
+  }
+
+  @media (max-width: 952px){
+    label.logo{
+      font-size: 30px;
+      padding-left: 50px;
+    }
+    nav ul li a{
+      font-size: 16px;
+    }
+  }
+  @media (max-width: 858px){
+    .checkbtn{
+      display: block;
+    }
+    ul{
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      background: #063838;
+      top: 60px;
+      left: -100%;
+      text-align: center;
+      transition: all .5s;
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+    }
+    nav ul li{
+      display: block;
+      margin: 50px 0;
+      line-height: 30px;
+    }
+    nav ul li a{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      font-size: 20px;
+    }
+    a:hover,a.active{
+      background: none;
+      color: #0082e6;
+    }
+    #check:checked ~ ul{
+      left: 0;
+    }
+
+    .start{
+        padding-left: 30px;
+        color: whitesmoke;
+    }
+    .start .container2{
+        display: none;
+    }
+  }
+
+  .start{
+    /* background-color: white; */
+    width: 90vw;
+    padding-top: 200px;
+    padding-left: 100px;
+  }
+
+  .start .startname{
+    display: flex;
+    width: 90px;
+    font-size: 20px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    color: rgb(80, 78, 78);
+    justify-content: space-around;
+    align-items: center;
+  }
+  .start .startname span{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid orangered;
+    box-shadow: 0 1px 2px orangered;
+  }
+
+  .start .main
+  {
+    display: flex;
+    margin-top: 50px;
+    justify-content: space-between;
+    align-items: cneter;
+  }
+  .start .main .container{
+    display: flex;
+    flex-direction: column;
+  }
+  .start .main .container h2{
+    margin-top: 30px;
+    font-size: 30px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: white;
+  }
+
+  .start .main .container h2 span{
+    color: orangered;
+  }
+
+.start .main .container h3{
+  font-size: 40px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  color: white;
+}
+
+.start .main .container h3 bold{
+    font-weight: bold;
+    color: blue;
+}
+
+.start .main .container a{
+    margin-top: 30px;
+    text-decoration: none;
+}
+
+.start .main .container a button{
+    color: white;
+    width: 200px;
+    border-radius: 3px;
+    font-size: 25px;
+    border: none;
+    outline: none;
+    height: 50px;
+    background: orangered;
+}
+
+.start .main .container .text{
+    color: rgb(145, 147, 148);
+    margin-top: 150px;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.start .main .container2 img{
+    border-radius: 50%;
+    border: none;
+    box-shadow: 0 0px 6px black;
+}
+
+.about{
+    /* background-color: white; */
+    width: 90vw;
+    padding-top: 150px;
+    padding-left: 100px;
+  }
+
+  .about .aboutname{
+    display: flex;
+    width: 100px;
+    font-size: 20px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    color: rgb(80, 78, 78);
+    justify-content: space-around;
+    align-items: center;
+  }
+  .about .aboutname span{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid orangered;
+    box-shadow: 0 1px 2px orangered;
+  }
+.about .container{
+    background: rgba(77, 73, 73, 0.228);
+    padding: 30px;
+    margin-top: 30px;
+}
+
+  .about .container p{
+    color: rgba(255, 255, 255, 0.62);
+    margin-top: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    letter-spacing: 1px;
+    font-size: 20px;
+  }
+
+  .work{
+    width: 90vw;
+    padding-top: 100px;
+    padding-left: 100px;
+  }
+
+  .work .workname{
+    display: flex;
+    width: 90px;
+    font-size: 20px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-weight: bold;
+    color: rgb(80, 78, 78);
+    justify-content: space-around;
+    align-items: center;
+  }
+  .work .workname span{
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    border: 1px solid orangered;
+    box-shadow: 0 1px 2px orangered;
+  }
+
+  .work .work1{
+    margin-top: 100px;
+    /* filter: brightness(50%); */
+    display: flex;
+    font-size: 25px;
+    justify-content: center;
+    align-items: center;
+    background:  linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url(/img/portfolio.png);
+    font-size: 30px;
+    width: 600px;
+    height: 300px;
+    background-size: cover;
+    color: rgba(255, 254, 254, 0.744);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: 0.7s;
+  }
+
+  .work .work1:hover
+{
+    width:650px;
+    height: 300px;
+    font-size: 50px;
+    box-shadow: 0 0px 4px solid white;
+}
+
+  .work .work2{
+    /* filter: brightness(50%); */
+    margin-left: 60%;
+    display: flex;
+    font-size: 25px;
+    justify-content: center;
+    align-items: center;
+    background:  linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url(/img/chatbase.png);
+    font-size: 30px;
+    width: 600px;
+    height: 300px;
+    background-size: cover;
+    color: rgba(255, 254, 254, 0.744);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: 0.7s;
+  }
+
+  .work .work2:hover
+{
+    width:650px;
+    height: 300px;
+    font-size: 50px;
+    box-shadow: 0 0px 4px solid white;
+}
+  .work .work3{
+    /* filter: brightness(50%); */
+    display: flex;
+    font-size: 25px;
+    justify-content: center;
+    align-items: center;
+    background:  linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4) ), url(/img/signupandlogin.png);
+    font-size: 30px;
+    width: 600px;
+    height: 300px;
+    background-size: cover;
+    color: rgba(255, 254, 254, 0.744);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    transition: 0.7s;
+  }
+  .work .work3:hover
+{
+    width:650px;
+    height: 300px;
+    font-size: 50px;
+    box-shadow: 0 0px 4px solid white;
+}

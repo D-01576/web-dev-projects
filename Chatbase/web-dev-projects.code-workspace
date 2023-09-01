@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"name": "web-dev-projects",
+			"path": ".."
+		},
+		{
+			"name": "100-Days-of-Code",
+			"path": "../../100-Days-of-Code"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "web-dev-projects"
+	}
+}
