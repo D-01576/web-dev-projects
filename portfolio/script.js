@@ -107,8 +107,18 @@ let form = document.querySelector(".form");
 
 button.addEventListener("click",()=>{
   form.style.left = "0";
+  if(window.screen.width > 858){
+  cursor.style.display = "none";
+  cursorinner.style.display = "none";
+  document.querySelector("body").style.cursor = "auto"
+  }
 })
 
 cancel.addEventListener("click",()=>{
   form.style.left = "-100%";
+  if(window.screen.width > 858){
+  cursor.style.display = "flex";
+  cursorinner.style.display = "flex";
+  document.querySelector("body").style.cursor = "none"
+  }
 })
