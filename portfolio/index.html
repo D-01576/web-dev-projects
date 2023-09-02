@@ -5,20 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>programer</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./img/portfolio-icon-computer-8dErDW6-600.jpg" type="image/x-icon">
 </head>
 <body>
-    <!-- <div class="cursor dot"></div>
-    <div class="cursor circle"></div> -->
     <nav>
         <h2 class="name"><span><</span>Sarfaraz<span>/></span></h2>
+        <div class="cursor"></div>
+  <div class="cursor2"></div>
         <input type="checkbox" id="check">
         <label for="check" class="checkbtn">
-          <i class="fas fa-bars">dsf</i>
+          <i class="fas fa-bars"></i>
         </label>
         <ul>
-          <li><a href="#start"><i class="fa fa-home"></i>Start/></a></li>
-          <li><a href="#about"><i class="fa-solid fa-gamepad"></i>About/></a></li>
-          <li><a href="#work"><i class="fa-solid fa-star"></i>Work/></a></li>
+          <li><a href="#start" class="color active">Start/></a></li>
+          <li><a href="#about" class="color">About/></a></li>
+          <li><a href="#work" class="color">Work/></a></li>
+          <li><a href="#contact" class="color">Contact/></a></li>
         </ul>
       </nav>
       <div class="start" id="start">
@@ -34,7 +36,7 @@
                 <p class="text">Let me show you</p>
             </div>
             <div class="container2">
-                <img src="/img/profile.jpeg" alt="">
+                <img src="./img/profile.jpeg" alt="">
             </div>
         </div>
       </div>
@@ -43,7 +45,7 @@
             <span></span>
             about/>
         </span>
-        <div class="container">
+        <div class="container reveal">
             <!-- <h2>about me</h2> -->
             <p>Hello! I'm a 14-year-old student currently attending a public school in Hyderabad.<br>
                 I'm currently in the 10th grade, and I'm passionate about programming. I enjoy diving into the world of web development and have gained proficiency in several programming languages and technologies.<br><br>
@@ -63,22 +65,50 @@
             <span></span>
             work/>
         </span>
-        <a href="https://onpokedex.netlify.app" class="work1">
+        <a href="https://onpokedex.netlify.app" class="work1 reveal">
          <p>
             Pokedex
           </p>
         </a>
-        <a href="https://chatbbase.netlify.app" class="work2">
+        <a href="https://chatbbase.netlify.app" class="work2 reveal">
             <p>
                 Chatbase
             </p>
         </a>
-        <a href="https://portant.netlify.app" class="work3">
+        <a href="https://portant.netlify.app" class="work3 reveal">
             <p>
                 Sign-up and Login
             </p>
         </a>
       </div>
+      <div class="contact">
+        <span class="contactname">
+          <span></span>
+          contact/>
+      </span>
+      <div class="main" id="contact">
+        <h2>Find me on</h2>
+        <div class="links">
+          <li><a href="https://github.com/sarfaraz01576"><i class="fa-brands fa-github"></i>Github</a></li>
+          <li><a href="https://twitter.com/sarfaraz01576"><i class="fa-brands fa-square-x-twitter"></i></a></li>
+          <li><a href="https://web.facebook.com/sarfaraz.khatti.54"><i class="fa-brands fa-facebook"></i>Facebook</a></li>
+          <li><a href="https://leetcode.com/sarfaraz01576/"><i class="fa-brands fa-leetcode"></i>Leetcode</a></li>
+          <li><a href="https://www.upwork.com/freelancers/~01950e92b677c40ed8"><i class="fa-brands fa-upwork"></i>Upwork</a></li>
+          <li><a href="https://www.fiverr.com/s/zbbGNR"><i class="fa-brands fa-fiverr"></i>fiverr</a></li>
+          <li><a href="https://mail.google.com/mail/u/0/#inbox?compose=CllgCJvpbJfQBPmrbKTGcvRgXmzxLdKxnTZSkBmQwcstxqCqwQNkSpzdcHPzmqwpHvqGVQKbZlB"><i class="fa-solid fa-message"></i>Email</a></li>
+          <li><a href=""><i class="fa-brands fa-whatsapp"></i>Whatsapp</a></li>
+        </div>
+        <button id="touch">Get in touch</button>
+      </div>
+    </div>
+    <div class="form">
+      <p id="cancel"><i class="fa-solid fa-xmark"></i></p>
+      <h2>Get in touch</h2>
+      <span>Enter your Email</span>
+      <input type="email" placeholder="Email">
+      <button>Submit</button>
+    </div>
+    <script src="https://kit.fontawesome.com/16039dc6d0.js" crossorigin="anonymous"></script>
     <script src="script.js"></script>
 </body>
 </html>

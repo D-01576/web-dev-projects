@@ -1,24 +1,6 @@
-let dot = document.querySelector(".dot")
-let circle = document.querySelector(".circle")
+let clickk = document.querySelector(".color")
 
-const positionElement = (e)=> {
-    const mouseY = e.clientY;
-    const mouseX = e.clientX;
-  
-    dot.style.transform = `translate3d(${mouseX}px, ${mouseY}px, 0)`;
-    move();
-  }
-  
-  window.addEventListener('mousemove', positionElement)
-
-  function move(){
-    const a = dot.style.transform;
-    // const b = dot;
-    // console.log(a)
-    circle.style.transform = `${a}`;
-  }
-
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
 
@@ -35,3 +17,98 @@ const positionElement = (e)=> {
 });
 
 
+document.addEventListener("scroll",()=>{
+  // console.log(window.innerHeight)
+  let reveals = document.querySelectorAll(".reveal");
+  for(let i = 0;i < reveals.length;i++){
+    let top = reveals[i].getBoundingClientRect().top
+    if(top < 650){
+      reveals[i].classList.add('active');
+    }
+    else{
+      reveals[i].classList.remove('active');
+    }
+  }
+})
+
+window.addEventListener("load",()=>{
+  let container = document.querySelector(".container");
+  let container2 =  document.querySelector(".container2");
+
+  container.classList.add('active');
+  container2.classList.add('active');
+})
+
+function colorchange(){
+  let start = document.querySelector(".start").getBoundingClientRect().top;
+  let about = document.querySelector(".start").getBoundingClientRect().top;
+  let work = document.querySelector(".start").getBoundingClientRect().top;
+  let contact = document.querySelector(".start").getBoundingClientRect().top;
+  let color = document.querySelectorAll(".color")
+  console.log(about)
+  console.log(window.windowheight)
+
+    if(start > -677.2388305664062 && start <= 0){
+      color[0].classList.add('active')
+      color[1].classList.remove('active')
+      color[2].classList.remove('active')
+      color[3].classList.remove('active')
+    }
+    else if(start > -1000.858154296875){
+      color[0].classList.remove('active')
+      color[1].classList.add('active')
+      color[2].classList.remove('active')
+      color[3].classList.remove('active')
+    }
+    else if(start > -2194.02978515625){
+      color[0].classList.remove('active')
+      color[1].classList.remove('active')
+      color[2].classList.add('active')
+      color[3].classList.remove('active')
+    }
+    else{
+      color[0].classList.remove('active')
+      color[1].classList.remove('active')
+      color[2].classList.remove('active')
+      color[3].classList.add('active')
+    }
+}
+
+document.addEventListener("scroll",colorchange)
+clickk.addEventListener("click",colorchange)
+
+var cursor = document.querySelector('.cursor');
+var cursorinner = document.querySelector('.cursor2');
+
+document.addEventListener('mousemove', function(e){
+  cursor.style.transform = `translate3d(calc(${e.clientX}px - 50%), calc(${e.clientY}px - 50%), 0)`
+});
+
+document.addEventListener('mousemove', function(e){
+  var x = e.clientX;
+  var y = e.clientY;
+  cursorinner.style.left = x + 'px';
+  cursorinner.style.top = y + 'px';
+});
+
+document.addEventListener('mousedown', function(){
+  cursor.classList.add('click');
+  cursorinner.classList.add('cursorinnerhover')
+});
+
+document.addEventListener('mouseup', function(){
+  cursor.classList.remove('click')
+  cursorinner.classList.remove('cursorinnerhover')
+});
+
+let button = document.querySelector("#touch")
+let cancel = document.getElementById("cancel")
+let form = document.querySelector(".form");
+
+button.addEventListener("click",()=>{
+  form.style.left = "0";
+})
+
+cancel.addEventListener("click",()=>{
+  form.style.left = "-100%";
+})
