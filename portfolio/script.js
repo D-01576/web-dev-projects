@@ -122,3 +122,23 @@ cancel.addEventListener("click",()=>{
   document.querySelector("body").style.cursor = "none"
   }
 })
+
+let nav =  document.querySelector("nav");
+
+let lastScrollTop =
+  window.pageYOffset || document.documentElement.scrollTop;
+
+window.addEventListener('scroll',()=>{
+    const scrollTopPosition = document.documentElement.scrollTop;
+
+    if (scrollTopPosition > lastScrollTop) {
+      nav.style.top = "-10%";
+    } 
+    else if (scrollTopPosition < lastScrollTop) {
+      nav.style.top = "0";
+    }
+    lastScrollTop = scrollTopPosition <= 0 ? 0 : scrollTopPosition;
+  },false,);
+
+
+  
